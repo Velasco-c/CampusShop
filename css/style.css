@@ -227,11 +227,12 @@
     }
 
     .grid-productos {
-        display: flex;         
-        flex-wrap: wrap;       
-        justify-content: center; 
-        gap: 15px;
-        padding: 50px;
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+        gap: 1.5em;
+        padding: 30px;
+        max-width: 1500px;
+        margin: 0 auto;
     }
 
     .grid-productos > div {    
