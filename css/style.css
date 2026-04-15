@@ -573,6 +573,8 @@
     padding: 20px;
     width: 100%;
     box-sizing: border-box;
+    flex-direction: column;
+    gap: 1em;
 }
 
 
@@ -603,10 +605,11 @@
 
 .imagen-carrito img {
     min-height: 10px;
-    width: 100%; 
+    width: auto; 
     min-width: 50px;
     max-width: 150px;
     height: auto;
+    max-height: 250px;
 }
 
 .info-carrito {
