@@ -425,33 +425,7 @@
         line-height: 1.4;
     }
 
-    /* ========== MODAL PRODUCTO ACTUALIZADO ========== */
-    .toggle-input {
-        display: none;
-    }
 
-    /* OVERLAY */
-    .overlay-detalle {
-        position: fixed;
-        inset: 0;
-        background: rgba(0, 0, 0, .45);
-        backdrop-filter: blur(8px);
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        opacity: 0;
-        visibility: hidden;
-        transition: .35s ease;
-        z-index: 9999;
-        padding: 20px;
-        box-sizing: border-box;
-
-    }
-
-    .toggle-input:checked~.overlay-detalle {
-        opacity: 1;
-        visibility: visible;
-    }
     /* metodo-pago */
     /* La tarjeta blanca */
     .payment-card {
@@ -589,17 +563,45 @@
     }
 
 
-    /* MODAL */
+    /* ========== MODAL PRODUCTO ACTUALIZADO ========== */
+    .toggle-input {
+        display: none;
+    }
+
+    /* OVERLAY */
+    .overlay-detalle {
+        position: fixed;
+        inset: 0;
+        background: rgba(0, 0, 0, .6);
+        backdrop-filter: blur(8px);
+        display: flex;
+        justify-content: center;
+        align-items: flex-start;
+        opacity: 0;
+        visibility: hidden;
+        transition: .35s ease;
+        z-index: 9999;
+        padding: clamp(10px, 3vw, 20px);
+        box-sizing: border-box;
+        overflow-y: auto;
+    }
+
+    .toggle-input:checked~.overlay-detalle {
+        opacity: 1;
+        visibility: visible;
+    }
+
+    /* CONTENIDO */
     .contenido-detalle {
         background: #fff;
         color: #000;
-        width: min(95vw, 1100px);
+        width: min(95vw, 900px);
         max-height: 90vh;
-        border-radius: 24px;
-        padding: clamp(20px, 3vw, 35px);
+        border-radius: clamp(16px, 3vw, 24px);
+        padding: clamp(20px, 4vw, 35px);
         position: relative;
-        overflow: auto;
-        box-shadow: 0 25px 60px rgba(0, 0, 0, .35);
+        overflow-y: auto;
+        box-shadow: 0 25px 60px rgba(0, 0, 0, .4);
         transform: scale(.95);
         transition: .35s ease;
     }
@@ -608,35 +610,44 @@
         transform: scale(1);
     }
 
+    /* LAYOUT - Se adapta solo con auto-fit */
     .landscape-layout {
         display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-        gap: clamp(20px, 3vw, 45px);
+        grid-template-columns: repeat(auto-fit, minmax(min(280px, 100%), 1fr));
+        gap: clamp(20px, 4vw, 40px);
         align-items: center;
     }
 
+    /* IMAGEN */
     .foto-modelo {
         width: 100%;
+        max-width: min(400px, 100%);
         aspect-ratio: 3 / 5;
         object-fit: cover;
-        border-radius: 18px;
+        border-radius: clamp(12px, 2vw, 18px);
+        margin: 0 auto;
+        display: block;
     }
 
+    /* TEXTO */
     .modal-texto {
         display: flex;
         flex-direction: column;
-        gap: 1rem;
+        gap: clamp(0.75rem, 2vw, 1rem);
         min-width: 0;
         align-items: center;
+        text-align: center;
     }
 
     .modal-texto h1 {
         font-family: 'Bebas Neue', sans-serif;
-        font-size: clamp(2rem, 6vw, 4.5rem);
-        line-height: .9;
+        font-size: clamp(2rem, 7vw, 3.5rem);
+        line-height: 1;
         margin: 0;
         color: #000;
+        word-break: break-word;
     }
+
 
     .modal-texto p {
         margin: 0;
