@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Metodo de pago | Campus Shop</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<header>
+        <div class="activador"><img src="imagenes/campushop.png" alt="iconos-principal"></div>
+        <nav class="navbar">
+                    <li><a href="#">abrigos</a></li>
+                    <li><a href="#">camiseta</a></li>
+                    <li><a href="#">pantalones</a></li>
+                    <hr>
+                    <li><a href="history.html">carrito</a></li>
+        </nav>
+    </header>
+
+<main class="cart-empty1">
+    <div class="payment-card">
+        <div class="payment-header">
+            <h1>Finalizar Compra</h1>
+            <p>Ingresa los detalles de tu tarjeta de crédito o débito</p>
+        </div>
+
+        <form class="payment-form">
+            <div class="input-container">
+                <img src="iconos/user.svg" alt="Usuario">
+                <input type="text" placeholder="Titular de la tarjeta" required>
+            </div>
+
+            <div class="input-container">
+                <img src="iconos/credit-card.svg" alt="Tarjeta">
+                <input type="tel" placeholder="•••• •••• •••• ••••" maxlength="19" required>
+            </div>
+
+            <div class="input-row">
+                <div class="input-container">
+                    <input type="text" placeholder="MM / AA" maxlength="5" required>
+                </div>
+                <div class="input-container">
+                    <img src="iconos/password.svg" alt="CVV">
+                    <input type="password" placeholder="CVV" maxlength="4" required>
+                </div>
+            </div>
+
+            <div class="secure-info">
+                <img src="iconos/check.svg" alt="secure">
+                <span>Pago encriptado y seguro</span>
+            </div>
+
+            <div class="boton-producto1">
+                <label for="modal-dress" class="btn-products1">Aceptar pago</label>
+            </div>
+            
+        <input type="checkbox" id="modal-dress" class="toggle-input">
+        <div class="metod-pay">
+            <div class="detalles">
+                <div class="layout">
+                    <img src="iconos/check.svg" alt="check" class="foto-modelo1">
+
+                    <div class="modal-texto">
+                        <p>Studio Line</p>
+                        <h1>¡Pago Exitoso!</h1>
+                        <p class="descripcion">
+                            Tu <strong>metodo de pago</strong> ha sido procesado correctamente. 
+                            Hemos enviado el comprobante a tu correo electrónico.
+                        </p>
+                            <a href="index.html" class="btn-products1"> Finalizar </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </form>
+    </div>
+</main>
+    
+
+<footer class="minimal-footer">
+    <div class="social-icons">
+        <a href="#"><img src="iconos/github.svg" alt=""></a>
+        <a href="#"><img src="iconos/linkedin.svg" alt=""></a>
+        <a href="#"><img src="iconos/instagram.svg" alt=""></a>
+    </div>
+    <p class="footer-legal">&copy; 2026 | Carlos Tzoy</p>
+</footer>
+
+</body>
+</html>
