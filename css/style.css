@@ -815,59 +815,61 @@
         display: flex;
         justify-content: center;
         align-items: flex-start;
-        padding: 20px;
+        padding: clamp(15px, 3vw, 30px);
         width: 100%;
         box-sizing: border-box;
         flex-direction: column;
-        gap: 1em;
+        gap: clamp(1em, 2vw, 1.5em);
     }
-
 
     .carrito {
         width: 100%;
+        max-width: 800px;
+        margin: 0 auto;
     }
 
     .grid-carrito {
         display: flex;
-        flex-direction: row;
+        flex-wrap: wrap;
         justify-content: space-between;
-        align-items: center;
+        align-items: flex-start;
         width: 100%;
-        min-height: 100px;
-        padding: 10px;
+        min-height: auto;
+        padding: clamp(10px, 3vw, 50px);
         border-radius: 20px;
         background: linear-gradient(135deg, rgba(255, 182, 193, 0.3), rgba(173, 216, 230, 0.3));
         backdrop-filter: blur(8px);
         box-sizing: border-box;
+        gap: clamp(10px, 2vw, 20px);
     }
 
     .imagen-carrito {
-        flex: 0 0 30%;
+        flex: 0 0 clamp(100px, 30%, 180px);
         display: flex;
-        justify-content: start;
-        margin: 5px;
+        justify-content: center;
+        align-items: center;
     }
 
     .imagen-carrito img {
-        min-height: 10px;
-        width: auto;
+        min-height: 50px;
+        width: 100%;
         min-width: 50px;
         max-width: 150px;
         height: auto;
-        max-height: 250px;
+        max-height: 300px;
     }
 
     .info-carrito {
         flex: 1;
+        min-width: 200px;
         display: flex;
         flex-direction: column;
         justify-content: space-between;
-        align-items: end;
-        padding-left: 50px;
-        flex-wrap: wrap;
-        gap: 2em;
-        margin: 10px;
+        align-items: stretch;
+        gap: clamp(10px, 2vw, 15px);
+        padding: 0;
     }
+
 
     .info-carrito .texto {
         display: flex;
@@ -886,15 +888,15 @@
 
     .more {
         color: #000;
-        max-width: 80px;
-        min-width: 10px;
-        height: 50px;
-        padding: 3px;
-        border-radius: 20px;
+        width: clamp(60px, 15vw, 80px);
+        height: clamp(35px, 8vw, 45px);
+        padding: 5px;
+        border: 1px solid rgba(0, 0, 0, 0.2);
+        border-radius: 10px;
         text-align: center;
-        margin-left: 50%;
-        size: 100px;
-        font-size: 1em;
+        font-size: clamp(0.9rem, 2.5vw, 1rem);
+        background: rgba(255, 255, 255, 0.8);
+        margin-top: 5px;
     }
 
     /* efecto al enfocar */
