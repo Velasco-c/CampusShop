@@ -1,0 +1,30 @@
+/* Tokens de diseño. Dark fashion: negro, blanco y grises.
+   El degradado de acento se reserva para la línea activa y el contador del carrito. */
+:root {
+  --bg: #0a0a0b;
+  --bg-elev: #111113;
+  --surface: #18181b;
+  --surface-2: #202025;
+  --line: rgba(255, 255, 255, 0.08);
+  --line-strong: rgba(255, 255, 255, 0.18);
+  --text: #f1f0ec;
+  --text-dim: #9b9ba3;
+  --text-faint: #5e5e66;
+  --accent: #ff9aa2;
+  --accent-2: #b59cf0;
+  --accent-grad: linear-gradient(120deg, #ff9aa2, #b59cf0);
+  --ok: #86d3a6;
+  --warn: #e6c46f;
+  --danger: #ff6b6b;
+
+  --font-display: 'Bebas Neue', Impact, sans-serif;
+  --font-serif: 'Playfair Display', Georgia, serif;
+  --font-body: 'Inter', system-ui, -apple-system, 'Segoe UI', sans-serif;
+
+  --radius-sm: 10px;
+  --radius: 16px;
+  --radius-lg: 22px;
+  --header-h: 68px;
+  --container: 1280px;
+  --ease-out: cubic-bezier(0.22, 1, 0.36, 1);
+}

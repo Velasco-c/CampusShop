@@ -1,0 +1,206 @@
+/* Cabecera, menú lateral, cortina de transición y pie. */
+
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 30;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  min-height: var(--header-h);
+  padding: 0 clamp(16px, 3vw, 32px);
+  background: rgba(10, 10, 11, 0.84);
+  -webkit-backdrop-filter: blur(14px);
+  backdrop-filter: blur(14px);
+  border-bottom: 1px solid var(--line);
+}
+
+.brand {
+  display: inline-flex;
+  flex: none;
+}
+/* El logo se muestra en blanco para mantener la paleta monocromática. */
+.brand img {
+  height: 30px;
+  width: auto;
+  filter: brightness(0) invert(1);
+}
+
+.search {
+  position: relative;
+  display: flex;
+  flex: 1;
+  align-items: center;
+  gap: 10px;
+  max-width: 440px;
+  height: 42px;
+  margin: 0 auto;
+  padding: 0 16px;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  background: var(--surface);
+  transition: border-color 0.25s;
+}
+.search:focus-within {
+  border-color: var(--line-strong);
+}
+.search__icon {
+  width: 18px;
+  height: 18px;
+  color: var(--text-dim);
+}
+.search input {
+  flex: 1;
+  height: 100%;
+  padding: 0;
+  border: 0;
+  background: transparent;
+}
+.search input:focus {
+  box-shadow: none;
+}
+
+.header-actions {
+  display: flex;
+  flex: none;
+  gap: 8px;
+}
+.cart-btn {
+  position: relative;
+}
+.badge {
+  position: absolute;
+  top: -6px;
+  right: -6px;
+  display: grid;
+  place-items: center;
+  min-width: 20px;
+  height: 20px;
+  padding: 0 6px;
+  border-radius: 999px;
+  background: var(--accent-grad);
+  color: #0a0a0b;
+  font-size: 0.72rem;
+  font-weight: 700;
+}
+
+.menu-scrim {
+  position: fixed;
+  inset: 0;
+  z-index: 35;
+  background: rgba(0, 0, 0, 0.55);
+  backdrop-filter: blur(3px);
+}
+.side-menu {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 40;
+  width: min(340px, 86vw);
+  padding: 96px 28px 32px;
+  overflow-y: auto;
+  background: var(--bg-elev);
+  border-right: 1px solid var(--line);
+}
+.menu-list {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  list-style: none;
+}
+.menu-link {
+  display: block;
+  padding: 8px 0;
+  font-family: var(--font-display);
+  font-size: 2.1rem;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  color: var(--text);
+  transition:
+    color 0.2s,
+    transform 0.3s var(--ease-out);
+}
+.menu-link:hover {
+  color: var(--accent);
+  transform: translateX(6px);
+}
+.menu-link--sub {
+  font-size: 1.4rem;
+  color: var(--text-dim);
+}
+.menu-caption {
+  margin: 28px 0 8px;
+  font-family: var(--font-serif);
+  font-style: italic;
+  color: var(--text-faint);
+}
+
+/* Cortina entre páginas: un panel oscuro barre la pantalla con una inclinación suave. */
+.curtain-layer {
+  position: fixed;
+  inset: 0;
+  z-index: 60;
+  overflow: hidden;
+  pointer-events: none;
+}
+.curtain-layer.is-pending {
+  pointer-events: auto;
+}
+.curtain-panel {
+  position: absolute;
+  top: -10%;
+  bottom: -10%;
+  left: -20%;
+  right: -20%;
+  border-right: 1px solid rgba(255, 154, 162, 0.5);
+  background: var(--bg);
+  transform: translateX(120%) skewX(-10deg);
+  will-change: transform;
+}
+
+.site-footer {
+  margin-top: auto;
+  padding: 40px 20px;
+  border-top: 1px solid var(--line);
+  text-align: center;
+}
+.social-links {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 8px 24px;
+  margin-bottom: 16px;
+}
+.social-links a {
+  font-size: 0.9rem;
+  color: var(--text-dim);
+  transition: color 0.2s;
+}
+.social-links a:hover {
+  color: var(--text);
+}
+.footer-legal {
+  font-size: 0.72rem;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  color: var(--text-faint);
+}
+
+
+@media (max-width: 720px) {
+  .site-header {
+    flex-wrap: wrap;
+    row-gap: 10px;
+    padding-block: 12px;
+  }
+  .search {
+    order: 3;
+    flex-basis: 100%;
+    max-width: none;
+    margin: 0;
+  }
+  .header-actions {
+    margin-left: auto;
+  }
+}
