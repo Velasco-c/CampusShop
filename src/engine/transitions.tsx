@@ -1,11 +1,9 @@
 // Movimiento de la tienda. Cada animación cumple una función concreta:
 //  - Cortina: la única transición entre páginas. Confirma el cambio de ruta mientras
 //    la nueva vista se monta detrás de ella.
-//  - Entrada de página: fade + 8 px, bajo la cortina; el contenido no aparece de golpe.
-//  - Tarjetas: entran en cascada (máximo 8 posiciones × 45 ms) para orientar la lectura
-//    sin retrasarla.
+//  - Entrada de página y tarjetas: fundidos breves sin desplazar el layout.
 //  - Totales: cuentan hacia el valor nuevo para mostrar que cambiaron.
-// Con prefers-reduced-motion (MotionConfig reducedMotion="user") se eliminan los desplazamientos.
+// Con prefers-reduced-motion (MotionConfig reducedMotion="user") se respetan las preferencias del sistema.
 import {
   createContext,
   useCallback,
@@ -25,16 +23,16 @@ export const EASE_OUT: [number, number, number, number] = [0.22, 1, 0.36, 1];
 
 /** Entrada de cada página montada bajo la cortina. */
 export const pageVariants: Variants = {
-  initial: { opacity: 0, y: 8 },
-  enter: { opacity: 1, y: 0, transition: { duration: 0.32, ease: EASE_OUT } },
+  initial: { opacity: 0 },
+  enter: { opacity: 1, transition: { duration: 0.24, ease: EASE_OUT } },
 };
 
-/** Props de entrada escalonada para una tarjeta. El retraso se limita a 8 posiciones. */
+/** Props de entrada escalonada para una tarjeta; el retraso máximo es de 175 ms. */
 export function enterProps(index = 0) {
   return {
-    initial: { opacity: 0, y: 16 },
-    animate: { opacity: 1, y: 0 },
-    transition: { duration: 0.45, ease: EASE_OUT, delay: Math.min(index, 8) * 0.045 },
+    initial: { opacity: 0 },
+    animate: { opacity: 1 },
+    transition: { duration: 0.3, ease: EASE_OUT, delay: Math.min(index, 5) * 0.035 },
   };
 }
 
@@ -51,9 +49,9 @@ export function FadeIn({
   return (
     <motion.div
       className={className}
-      initial={{ opacity: 0, y: 14 }}
-      animate={{ opacity: 1, y: 0 }}
-      transition={{ duration: 0.45, ease: EASE_OUT, delay }}
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      transition={{ duration: 0.3, ease: EASE_OUT, delay }}
     >
       {children}
     </motion.div>
